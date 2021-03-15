@@ -1,6 +1,6 @@
 <?php
 
-namespace SkeletonPlugin;
+namespace CustomStockMessagesForWoocommerce;
 /**
  * The file that defines the core plugin class
  *
@@ -10,8 +10,8 @@ namespace SkeletonPlugin;
  * @link       https://booskills.com/rao
  * @since      1.0.0
  *
- * @package    SkeletonPlugin
- * @subpackage SkeletonPlugin/includes
+ * @package    CustomStockMessagesForWoocommerce
+ * @subpackage CustomStockMessagesForWoocommerce/includes
  */
 
 /**
@@ -24,8 +24,8 @@ namespace SkeletonPlugin;
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    SkeletonPlugin
- * @subpackage SkeletonPlugin/includes
+ * @package    CustomStockMessagesForWoocommerce
+ * @subpackage CustomStockMessagesForWoocommerce/includes
  * @author     Rao <rao@booskills.com>
  */
 class Init {
@@ -76,15 +76,15 @@ class Init {
 	public function __construct() {
 
 
-		if ( defined( 'SKELETON_PLUGIN_VERSION' ) ) {
-			$this->version = SKELETON_PLUGIN_VERSION;
+		if ( defined( 'CSMFW_VERSION' ) ) {
+			$this->version = CSMFW_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
-		if ( defined( 'SKELETON_PLUGIN_NAME' ) ) {
-			$this->plugin_name = SKELETON_PLUGIN_NAME;
+		if ( defined( 'CSMFW_NAME' ) ) {
+			$this->plugin_name = CSMFW_NAME;
 		} else {
-			$this->plugin_name = 'skeleton-plugin';
+			$this->plugin_name = 'custom-stock-messages-for-woocommerce';
 		}
 
 		// Load Dependencies
@@ -95,7 +95,7 @@ class Init {
 		$this->define_front_hooks();
 		$this->define_taxonomy_hooks();
 
-		do_action( 'skeleton_plugin_init_construct' );
+		do_action( 'custom_stock_messages_for_woocommerce_init_construct' );
 
 	}
 
