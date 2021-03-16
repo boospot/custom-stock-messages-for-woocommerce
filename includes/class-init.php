@@ -92,8 +92,8 @@ class Init {
 
 		$this->set_locale();
 		$this->define_admin_hooks();
-		$this->define_front_hooks();
-		$this->define_taxonomy_hooks();
+//		$this->define_front_hooks();
+		$this->define_woocommerce_hooks();
 
 		do_action( 'custom_stock_messages_for_woocommerce_init_construct' );
 
@@ -156,8 +156,13 @@ class Init {
 
 		$plugin_admin = new Admin( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+//		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+//		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+
+		/*
+		 * Added the plugin options menu and page
+		 */
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'admin_menu_simple', 99 );
 
 
 	}
@@ -201,19 +206,21 @@ class Init {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_front, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_front, 'enqueue_scripts' );
 
-//		var_dump( $this->front );
 
 	}
 
 	/**
-	 * Register all of the hooks related to taxonomies
+	 * Register all of the hooks related to woocommerce
 	 *
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function define_taxonomy_hooks() {
+	private function define_woocommerce_hooks() {
 
-//		$plugin_taxonomies = new Taxonomy();
+		$plugin_woo = new Woocommerce();
+		$this->loader->add_action( 'woocommerce_single_product_summary', $plugin_woo, 'display_custom_stock_messages', 31 );
+
+		$this->loader->add_action( 'woocommerce_loaded', $plugin_woo, 'add_custom_stock_messages_data_tabs' );
 
 
 	}

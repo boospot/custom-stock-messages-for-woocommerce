@@ -16,7 +16,7 @@
  * @wordpress-plugin
  * Plugin Name:       Custom Stock Messages For Woocommerce
  * Plugin URI:        https://boospot.com/
- * Description:       You may use Custom messages for WooCommerce
+ * Description:       You may use Custom messages for WooCommerce shortcode [custom_stock_messages]
  * Requires PHP:      7.0
  * Requires at least: 5.0
  * Tested up to:      5.3

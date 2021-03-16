@@ -27,7 +27,7 @@ class Globals {
 	 * @var
 	 */
 	protected static $options = array();
-	protected static $prefix = 'custom_stock_messages_for_woocommerce_';
+	protected static $prefix = 'csmfw_';
 	/**
 	 * The ID of this plugin.
 	 *

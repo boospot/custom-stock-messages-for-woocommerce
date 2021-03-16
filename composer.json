@@ -9,7 +9,10 @@
       "email": "rao@booskills.com"
     }
   ],
-  "require": {},
+  "require": {
+    "boospot/boo-settings-helper": "dev-master",
+    "boospot/boo-woocommerce-helper": "^1.0"
+  },
   "autoload": {
     "classmap": [
       "includes",
