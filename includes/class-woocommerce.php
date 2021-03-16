@@ -138,21 +138,31 @@ class Woocommerce {
 		$fields['settings_custom_stock_messages'] = apply_filters( 'csamfw_filter_wc_settings_custom_stock_messages_fields', array(
 
 			array(
-				'id'    => 'in_stock_message',
-				'label' => __( 'In Stock Message', 'custom-stock-messages-for-woocommerce' ),
-				'type'  => 'textarea',
-				'desc'  => esc_html__( 'Shortcodes can be used.', 'custom-stock-messages-for-woocommerce' )
+				'id'                => 'in_stock_message',
+				'label'             => __( 'In Stock Message', 'custom-stock-messages-for-woocommerce' ),
+				'type'              => 'textarea',
+				'desc'              => esc_html__( 'Shortcodes can be used.', 'custom-stock-messages-for-woocommerce' ),
+				'sanitize_callback' => [ $this, 'no_sanitize' ]
 			),
 			array(
-				'id'    => 'out_of_stock_message',
-				'label' => __( 'Out of Stock Message', 'custom-stock-messages-for-woocommerce' ),
-				'type'  => 'textarea',
-				'desc'  => esc_html__( 'Shortcodes can be used.', 'custom-stock-messages-for-woocommerce' )
+				'id'                => 'out_of_stock_message',
+				'label'             => __( 'Out of Stock Message', 'custom-stock-messages-for-woocommerce' ),
+				'type'              => 'textarea',
+				'desc'              => esc_html__( 'Shortcodes can be used.', 'custom-stock-messages-for-woocommerce' ),
+				'sanitize_callback' => [ $this, 'no_sanitize' ]
 			),
 
 		) );
 
 		return apply_filters( 'csamfw_filter_wc_fields', $fields );
+
+	}
+
+	/**
+	 *
+	 */
+	public function no_sanitize( $value ) {
+		return $value;
 
 	}
 
